@@ -4,16 +4,24 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'movies',
+    redirectTo: 'countryCap',
     pathMatch: 'full'
   },
   {
-    path: 'movies',
-    loadChildren: () => import('./pages/byCapital/movies.module').then( m => m.CountryServiceModule)
+    path: 'countryCap',
+    loadChildren: () => import('./pages/byCapital/countryCap.module').then( m => m.CountryServiceModule)
   },
   {
-    path: 'movie/:id',
-    loadChildren: () => import('./pages/movie-details/movie-details.module').then( m => m.MovieDetailsPageModule)
+    path: 'favorites',
+    loadChildren: () => import('./pages/favorites/favorites.module').then( m => m.FavoritosPageModule)
+  },
+  {
+    path: 'visitados',
+    loadChildren: () => import('./pages/visitados/visitados.module').then( m => m.VisitadosPageModule)
+  },
+  {
+    path: 'country/:name',
+    loadChildren: () => import('./pages/countryDetails/countryDetails.module').then( m => m.countryDetailsPageModule)
   },
 ];
 
