@@ -8,6 +8,9 @@ import { ResultsComponent } from './components/results/results.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { PaisRoutingModule } from './pais-routing.module';
+import { ByRegionComponent } from './pages/by-region/by-region.component';
+import { LoadingComponent } from '../shared/loading/loading.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -16,17 +19,20 @@ import { PaisRoutingModule } from './pais-routing.module';
     ByCountryComponent,
     ViewCountryComponent,
     SearchbarComponent,
-    ResultsComponent
+    ResultsComponent,
+    ByRegionComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     PaisRoutingModule,
+    SharedModule
   ],
   exports: [
     ByCapitalComponent,
     ByCountryComponent,
+    ByRegionComponent,
     ViewCountryComponent,
     SearchbarComponent,
     ResultsComponent

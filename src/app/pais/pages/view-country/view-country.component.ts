@@ -1,12 +1,69 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core'; 
+import { ActivatedRoute, Router } from '@angular/router';
+import { CountryService } from '../../services/country.service';
+import { switchMap } from 'rxjs';
+import { Country } from '../../models/country.interface';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-view-country',
   standalone: false,
-  
   templateUrl: './view-country.component.html',
-  styleUrl: './view-country.component.scss'
+  styleUrls: ['./view-country.component.scss'] // Correct `styleUrl` to `styleUrls`
 })
-export class ViewCountryComponent {
+export class ViewCountryComponent implements OnInit, AfterViewInit {
+  public country?: Country;
+  private map?: L.Map;
 
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private countryService: CountryService,
+    private router: Router,
+    private cdr: ChangeDetectorRef // Inject ChangeDetectorRef
+  ) {}
+
+  ngOnInit(): void {
+    this.activatedRoute.params
+      .pipe(switchMap(({ id }) => this.countryService.searchWholeCountry(id)))
+      .subscribe((country) => {
+        if (!country) {
+          this.router.navigateByUrl('');
+          return;
+        }
+
+        this.country = country;
+
+        // Trigger change detection to ensure the DOM is updated
+        this.cdr.detectChanges();
+
+        // Update the map view
+        if (this.map) {
+          this.map.setView([country.latlng[0], country.latlng[1]], 5);
+          this.addMarker(country.latlng[0], country.latlng[1]);
+        }
+      });
+  }
+
+  ngAfterViewInit(): void {
+    const mapContainer = document.getElementById('map');
+    if (!mapContainer) {
+      console.error('Map container is not rendered in the DOM!');
+      return;
+    }
+
+    // Initialize the map
+    this.map = L.map('map').setView([0, 0], 2);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+    }).addTo(this.map);
+  }
+
+  private addMarker(lat: number, lng: number): void {
+    if (this.map) {
+      L.marker([lat, lng]).addTo(this.map)
+        .bindPopup(`<b>${this.country?.name.common}</b>`)
+        .openPopup();
+    }
+  }
 }

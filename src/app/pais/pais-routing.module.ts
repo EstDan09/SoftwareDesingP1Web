@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ByCapitalComponent } from './pages/by-capital/by-capital.component';
 import { ByCountryComponent } from './pages/by-country/by-country.component';
+import { ByRegionComponent } from './pages/by-region/by-region.component';
+import { ViewCountryComponent } from './pages/view-country/view-country.component';
 
 const routes: Routes = [
     {
@@ -14,8 +16,12 @@ const routes: Routes = [
         component: ByCountryComponent
     },
     {
+        path: 'region',
+        component: ByRegionComponent
+    },
+    {
         path: 'view/:id',
-        component: ByCountryComponent
+        component: ViewCountryComponent
     },
     {
         path: '**',

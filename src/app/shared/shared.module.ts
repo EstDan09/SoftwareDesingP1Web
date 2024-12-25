@@ -4,6 +4,7 @@ import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 
@@ -12,12 +13,14 @@ import { AboutPageComponent } from './about-page/about-page.component';
   declarations: [
     SidemenuComponent,
     HomePageComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    LoadingComponent
   ],
   exports: [
     SidemenuComponent,
     HomePageComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
