@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,11 @@ export class AppComponent implements OnInit {
 
   showMenu: boolean = true;
 
-  constructor (private _router: Router) {}
+  private intervalId: any;
+  private authSubscription: Subscription | null = null;
+  private isAuthenticated = false;
+
+  constructor (private _router: Router, private _auth: AuthService) {}
 
   ngOnInit(): void {
     this._router.events.subscribe( ev => {
@@ -21,5 +27,25 @@ export class AppComponent implements OnInit {
         this.showMenu = !(currentRoute.startsWith('/auth'));
       }
     })
+
+    // Subscribe to the authentication state
+    this.authSubscription = this._auth.isAuthenticated$.subscribe((authState) => {
+      this.isAuthenticated = authState;
+    });
+
+    // Set up an interval to print login status every 2 seconds
+    this.intervalId = setInterval(() => {
+      console.log(`User is ${this.isAuthenticated ? 'logged in' : 'logged out'}`);
+    }, 2000);
+  }
+
+  ngOnDestroy(): void {
+    // Clean up the interval and subscription
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+    if (this.authSubscription) {
+      this.authSubscription.unsubscribe();
+    }
   }
 }

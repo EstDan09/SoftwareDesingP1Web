@@ -23,10 +23,7 @@ const routes: Routes = [
         path: 'view/:id',
         component: ViewCountryComponent
     },
-    {
-        path: '**',
-        redirectTo: 'capital'
-    }
+    
 ]
 
 @NgModule({

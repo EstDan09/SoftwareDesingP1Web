@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../models/country.interface';
+import { FireBaseCnxService } from '../../services/firebasecnx.service';
 @Component({
   selector: 'app-by-capital',
   standalone: false,
@@ -13,8 +14,10 @@ export class ByCapitalComponent implements OnInit {
   public countries: Country[] = [];
   public isLoading: boolean = false;
   public initialValue: string = '';
+  public ases: string = 'juan';
 
-  constructor(private _countryService: CountryService) {}
+
+  constructor(private _countryService: CountryService, private _firebase: FireBaseCnxService) {}
 
   ngOnInit(): void {
     this.countries = this._countryService.cacheStore.byCapital.countries;
@@ -30,6 +33,10 @@ export class ByCapitalComponent implements OnInit {
         this.isLoading = false;
       }
     );
+  }
+
+  addTest(term: string) {
+    this._firebase.saveCountries(term);
   }
 
 }

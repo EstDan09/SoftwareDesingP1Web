@@ -27,10 +27,7 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('../app/auth/auth.module').then(m => m.AuthModuleM)
   },
-  {
-    path:'**',
-    redirectTo: 'countries'
-  }
+  
 ];
 
 @NgModule({
