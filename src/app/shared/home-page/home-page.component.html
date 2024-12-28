@@ -3,16 +3,10 @@
   <li>{{ user.email }}</li>
 </ul>
 
-<ng-container *ngIf="countries.length > 0; else noCountries">
-  <h3>Your Countries:</h3>
-  <ul>
-    <li *ngFor="let country of countries">{{ country }}</li>
-  </ul>
-</ng-container>
+<div *ngFor="let c of countries">
+  <app-card [code]="c"></app-card>
+</div>
 
-<ng-template #noCountries>
-  <p>You have no countries in your list.</p>
-</ng-template>
 
 <ng-container *ngIf="_auth.isAuthenticated$ | async; else loggedOut">
   <button (click)="_auth.logout({ logoutParams: { returnTo: document.location.origin + '/about'} })">

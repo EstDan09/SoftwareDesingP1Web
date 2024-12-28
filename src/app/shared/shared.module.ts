@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { LoadingComponent } from './loading/loading.component';
+import { CardCComponent } from './card/card.component';
 
 
 
@@ -14,13 +15,15 @@ import { LoadingComponent } from './loading/loading.component';
     SidemenuComponent,
     HomePageComponent,
     AboutPageComponent,
-    LoadingComponent
+    LoadingComponent,
+    CardCComponent
   ],
   exports: [
     SidemenuComponent,
     HomePageComponent,
     AboutPageComponent,
-    LoadingComponent
+    LoadingComponent,
+    CardCComponent
   ],
   imports: [
     CommonModule,

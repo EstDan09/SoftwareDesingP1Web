@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
       }
     })
 
-    // Subscribe to the authentication state
+    /* // Subscribe to the authentication state
     this.authSubscription = this._auth.isAuthenticated$.subscribe((authState) => {
       this.isAuthenticated = authState;
     });
@@ -36,16 +36,16 @@ export class AppComponent implements OnInit {
     // Set up an interval to print login status every 2 seconds
     this.intervalId = setInterval(() => {
       console.log(`User is ${this.isAuthenticated ? 'logged in' : 'logged out'}`);
-    }, 2000);
+    }, 2000); */
   }
 
   ngOnDestroy(): void {
     // Clean up the interval and subscription
-    if (this.intervalId) {
+    /* if (this.intervalId) {
       clearInterval(this.intervalId);
     }
     if (this.authSubscription) {
       this.authSubscription.unsubscribe();
-    }
+    } */
   }
 }
