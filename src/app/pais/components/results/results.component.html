@@ -25,6 +25,9 @@
                 <td>
                     <a [routerLink]="['/countries/view', country.cca3]">Ver pais</a>
                 </td>
+                <td (click)="addToFavorites(country.cca3)">
+                    Agregar a favoritos
+                </td>
             </tr>
         </tbody>
     </table>

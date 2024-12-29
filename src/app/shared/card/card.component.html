@@ -1,8 +1,11 @@
 <div *ngIf="country; else noCountry">
     <h4>{{ country.name.common }}</h4>
-    <img [src]="country.flags.svg" [alt]="country.name.common" class="img-thumbnail">
+    <img [src]="country.flags.svg" [alt]="country.name.common" class="view">
     <p><strong>Population:</strong> {{ country.population | number }}</p>
     <p><strong>Region:</strong> {{ country.region }}</p>
+    <td>
+      <a [routerLink]="['/countries/view', country.cca3]">Ver pais</a>
+  </td>
   </div>
   
   <ng-template #noCountry>
