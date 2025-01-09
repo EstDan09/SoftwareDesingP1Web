@@ -1,5 +1,12 @@
 {
     "SIDEBAR": {
-        "HOME": "Inicio"
+        "HOME": "Inicio",
+        "ABOUT": "Nosotros",
+        "BY_CAPITAL": "Por Capital",
+        "BY_NAME": "Por Nombre",
+        "BY_REGION": "Por Region"
+    },
+    "ABOUT": {
+        "TITLE": "Somos World Traveller!"
     }
 }

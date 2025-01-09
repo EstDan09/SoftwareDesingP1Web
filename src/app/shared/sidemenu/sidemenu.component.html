@@ -1,4 +1,5 @@
 <h2>World Traveller</h2>
+<img class="img-icon" src="../../../assets/icons/world-svgrepo-com.svg" alt="">
 <hr>
 
 <ul class="list-group">
@@ -11,12 +12,12 @@
     <li routerLink="about"
     routerLinkActive="active"
     class="list-group-item">
-        About
+    {{ 'SIDEBAR.ABOUT' | translate}} 
     </li>
     <li routerLink="countries/capital"
     routerLinkActive="active"
     class="list-group-item">
-        Por Capital
+    {{ 'SIDEBAR.BY_CAPITAL' | translate}} 
     </li>
     <li routerLink="countries/country"
     routerLinkActive="active"

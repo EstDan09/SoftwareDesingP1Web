@@ -1,9 +1,13 @@
 li {
-    cursor: pointer;
-  }
-  
-  .list-group-item.active {
-    color: white;
-    background-color: #007bff;
-  }
-  
+  cursor: pointer;
+}
+
+.list-group-item.active {
+  color: white;
+  background-color: #007bff;
+}
+
+.img-icon {
+  width: 4vw;
+  height: 4vh
+}

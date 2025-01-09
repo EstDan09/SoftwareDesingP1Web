@@ -1,5 +1,9 @@
 {
     "SIDEBAR": {
-        "HOME": "Home"
+        "HOME": "Home",
+        "ABOUT": "About",
+        "BY_CAPITAL": "By Capital",
+        "BY_NAME": "By Name",
+        "BY_REGION": "By Region"
     }
 }
