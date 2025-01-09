@@ -11,6 +11,11 @@ import { provideAuth0  } from '@auth0/auth0-angular';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyBZBjEAoo_Ec02kcA3eDoAo1WTQGPQKxwE",
   authDomain: "proyecto1dds.firebaseapp.com",
@@ -21,6 +26,10 @@ const firebaseConfig = {
   measurementId: "G-9ETF70JSRP"
 };
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +38,15 @@ const firebaseConfig = {
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    PaisModule
+    PaisModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+      defaultLanguage: 'es',
+    }),
   ],
   providers: [provideHttpClient(),
     provideFirebaseApp(() => initializeApp(firebaseConfig)), // Initialize Firebase

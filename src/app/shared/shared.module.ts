@@ -6,6 +6,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { LoadingComponent } from './loading/loading.component';
 import { CardCComponent } from './card/card.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -27,7 +28,8 @@ import { CardCComponent } from './card/card.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    TranslateModule
   ]
 })
 export class SharedModule { }

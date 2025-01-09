@@ -51,13 +51,12 @@ export interface CoatOfArms {
 }
 
 export interface Currencies {
-    USD?: Clp;
-    DOP?: Clp;
-    CRC?: Clp;
-    CLP?: Clp;
-    YER?: Clp;
-    EUR?: Clp;
-}
+    [key: string]: {
+      name: string;
+      symbol: string;
+    };
+  }
+  
 
 export interface Clp {
     name:   string;

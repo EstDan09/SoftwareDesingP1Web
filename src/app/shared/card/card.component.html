@@ -1,14 +1,19 @@
 <div *ngIf="country; else noCountry">
-    <h4>{{ country.name.common }}</h4>
-    <img [src]="country.flags.svg" [alt]="country.name.common" class="view">
-    <p><strong>Population:</strong> {{ country.population | number }}</p>
-    <p><strong>Region:</strong> {{ country.region }}</p>
+  <h4>{{ country.name.common }}</h4>
+  <img [src]="country.flags.svg" [alt]="country.name.common" class="view">
+  <p><strong>Population:</strong> {{ country.population | number }}</p>
+  <p><strong>Region:</strong> {{ country.region }}</p>
+  <div class="row">
     <td>
       <a [routerLink]="['/countries/view', country.cca3]">Ver pais</a>
-  </td>
+    </td>
+    <td (click)="removeFromFavorites(country.cca3)">
+      <p>Eliminar Pais</p>
+    </td>
   </div>
-  
-  <ng-template #noCountry>
-    <p>Country details not available.</p>
-  </ng-template>
-  
+
+</div>
+
+<ng-template #noCountry>
+  <p></p>
+</ng-template>

@@ -2,6 +2,8 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-root',
@@ -18,8 +20,9 @@ export class AppComponent implements OnInit {
   private authSubscription: Subscription | null = null;
   private isAuthenticated = false;
 
-  constructor (private _router: Router, private _auth: AuthService) {}
-
+  constructor (private _router: Router, private _auth: AuthService, private _translate: TranslateService) {
+    this._translate.setDefaultLang('es'); // Default language
+  }
   ngOnInit(): void {
     this._router.events.subscribe( ev => {
       if (ev instanceof NavigationEnd) {
@@ -47,5 +50,9 @@ export class AppComponent implements OnInit {
     if (this.authSubscription) {
       this.authSubscription.unsubscribe();
     } */
+  }
+
+  switchLanguage(language: string) {
+    this._translate.use(language); // Switch to the selected language
   }
 }

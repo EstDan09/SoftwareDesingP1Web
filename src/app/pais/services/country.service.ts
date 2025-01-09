@@ -5,6 +5,7 @@ import { catchError, Observable, of, map, tap } from 'rxjs';
 import { Country } from '../models/country.interface';
 import { CacheStore } from '../models/cache-store.interface';
 import { Region } from '../models/regions.type';
+import { Exchange } from '../models/exchange.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -12,6 +13,7 @@ import { Region } from '../models/regions.type';
   export class CountryService {
 
     private apiUrl: string = 'https://restcountries.com/v3.1'
+    private exchangeApi: string = 'https://v6.exchangerate-api.com/v6/7d7c04bad88f24253bcb7af1/latest'
 
     public cacheStore: CacheStore = {
       byCapital: { term: '', countries: [] },
@@ -67,5 +69,9 @@ import { Region } from '../models/regions.type';
         map( countries => countries.length > 0 ? countries[0]: null ),
         catchError( () => of( null ) )
       );
+    }
+
+    getCurrencyInfo(currencyCode: string): Observable<Exchange> {
+      return this.http.get<any>(`${this.exchangeApi}/${currencyCode}`);
     }
   }

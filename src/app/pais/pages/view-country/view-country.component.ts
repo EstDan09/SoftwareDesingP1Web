@@ -14,6 +14,10 @@ import * as L from 'leaflet';
 export class ViewCountryComponent implements OnInit, AfterViewInit {
   public country?: Country;
   private map?: L.Map;
+  public currencyCode?: string;
+  private USDValue: number = 0;
+  public ResultExchange: string = '';
+  public inputValue: number = 0;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -32,6 +36,13 @@ export class ViewCountryComponent implements OnInit, AfterViewInit {
         }
 
         this.country = country;
+
+        const currencyKeys = Object.keys(country.currencies);
+        this.currencyCode = currencyKeys.length > 0 ? currencyKeys[0] : undefined;
+
+        this.countryService.getCurrencyInfo(this.currencyCode || this.currencyCode || "USD").subscribe(res => {
+          this.USDValue = res.conversion_rates['USD'];
+        })
 
         // Trigger change detection to ensure the DOM is updated
         this.cdr.detectChanges();
@@ -64,6 +75,12 @@ export class ViewCountryComponent implements OnInit, AfterViewInit {
       L.marker([lat, lng]).addTo(this.map)
         .bindPopup(`<b>${this.country?.name.common}</b>`)
         .openPopup();
+    }
+  }
+
+  exchange() {
+    if(this.inputValue) {
+      this.ResultExchange = (this.inputValue * this.USDValue).toString(); 
     }
   }
 }
