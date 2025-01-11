@@ -11,6 +11,7 @@ import { PaisRoutingModule } from './pais-routing.module';
 import { ByRegionComponent } from './pages/by-region/by-region.component';
 import { LoadingComponent } from '../shared/loading/loading.component';
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { SharedModule } from '../shared/shared.module';
     RouterModule,
     FormsModule,
     PaisRoutingModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ],
   exports: [
     ByCapitalComponent,

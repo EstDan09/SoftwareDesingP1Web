@@ -7,6 +7,25 @@
         "BY_REGION": "Por Region"
     },
     "ABOUT": {
-        "TITLE": "Somos World Traveller!"
+        "TITLE": "Somos World Traveller!",
+        "TEXT": "Su solucion para tener informacion de diversos paises a su alcance",
+        "TEXT2": "Podras tener datos utiles para conocer de manera general el pais"
+    },
+    "RESULT": {
+        "SEE": "Ver país",
+        "ADD": "Agregar a favoritos",
+        "DELETE": "Eliminar País de favoritos",
+        "LOGOUT": "Cerrar sesión",
+        "LOGIN": "Iniciar sesión",
+        "SUBTITLE": "Tasa de Cambio",
+        "FLAG": "Bandera",
+        "COUNTRY": "País",
+        "INFO": "Infomración",
+        "POPULATION": "Población",
+        "AREA": "Area",
+        "CONTINENT": "Continente",
+        "TIMEZONE": "Zona Hora",
+        "CURRENCY": "Moneda",
+        "NAME": "Nombre"
     }
 }

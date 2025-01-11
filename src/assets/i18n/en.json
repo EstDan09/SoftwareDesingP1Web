@@ -5,5 +5,27 @@
         "BY_CAPITAL": "By Capital",
         "BY_NAME": "By Name",
         "BY_REGION": "By Region"
+    },
+    "ABOUT": {
+        "TITLE": "We are World Traveller!",
+        "TEXT": "Your solution for having information about various countries at your fingertips",
+        "TEXT2": "You will have useful data to get a general understanding of the country"
+    },
+    "RESULT": {
+        "SEE": "See country",
+        "ADD": "Add to Favorites",
+        "DELETE": "Remove Country from Favorites",
+        "LOGOUT": "Log Out",
+        "LOGIN": "Log In",
+        "SUBTITLE": "Exchange Rate",
+        "FLAG": "Flag",
+        "COUNTRY": "Country",
+        "INFO": "Information",
+        "POPULATION": "Population",
+        "AREA": "Area",
+        "CONTINENT": "Continent",
+        "TIMEZONE": "Time-zone",
+        "CURRENCY": "Currency",
+        "NAME": "Name"
     }
 }

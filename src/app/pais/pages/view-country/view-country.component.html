@@ -5,7 +5,7 @@
     </div>
     <div class="col">
       <div class="row justify-content-center text-center">
-        <p>Tasa de Cambio</p>
+        <p>{{ 'RESULT.SUBTITLE' | translate}}</p>
         <div class="col mb-4">
           <div class="row mb-3">
             <input type="number" [(ngModel)]="inputValue" placeholder="Ingrese valor">
@@ -23,33 +23,33 @@
   <div *ngIf="country; else loading">
     <div class="row">
       <div class="col-12">
-        <h2>País: <strong>{{ country.name.common }}</strong></h2>
+        <h2>{{ 'RESULT.COUNTRY' | translate}} : <strong>{{ country.name.common }}</strong></h2>
         <hr>
       </div>
     </div>
 
     <div class="row">
       <div class="col-4">
-        <h3>Bandera</h3>
+        <h3>{{ 'RESULT.FLAG' | translate}}</h3>
         <img [src]="country.flags.svg" [alt]="country.name.common" class="img-thumbnail">
       </div>
       <div class="col">
-        <h3>Informacion</h3>
+        <h3>{{ 'RESULT.INFO' | translate}}</h3>
         <ul class="list-group">
           <li class="list-group-item">
-            <strong>Poblacion</strong> {{country.population | number}}
+            <strong>{{ 'RESULT.POPULATION' | translate}}</strong> {{country.population | number}}
           </li>
           <li class="list-group-item">
-            <strong>Area</strong> {{country.area | number}}
+            <strong>{{ 'RESULT.AREA' | translate}}</strong> {{country.area | number}}
           </li>
           <li class="list-group-item">
-            <strong>Continente</strong> {{country.continents}}
+            <strong>{{ 'RESULT.CONTINENT' | translate}}</strong> {{country.continents}}
           </li>
           <li class="list-group-item">
-            <strong>Zona Horaria</strong> {{country.timezones}}
+            <strong>{{ 'RESULT.TIMEZONE' | translate}}</strong> {{country.timezones}}
           </li>
           <li class="list-group-item">
-            <strong>Moneda</strong>: {{currencyCode}}
+            <strong>{{ 'RESULT.CURRENCY' | translate}}</strong>: {{currencyCode}}
           </li>
         </ul>
       </div>

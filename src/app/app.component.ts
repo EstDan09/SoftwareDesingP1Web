@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   private isAuthenticated = false;
 
   constructor (private _router: Router, private _auth: AuthService, private _translate: TranslateService) {
-    this._translate.setDefaultLang('es'); // Default language
+    this._translate.setDefaultLang('en'); // Default language
   }
   ngOnInit(): void {
     this._router.events.subscribe( ev => {

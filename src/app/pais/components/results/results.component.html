@@ -9,8 +9,8 @@
             <tr>
                 <th>#</th>
                 <th>Icon</th>
-                <th>Bandera</th>
-                <th>Nombre</th>
+                <th>{{ 'RESULT.FLAG' | translate}}</th>
+                <th>{{ 'RESULT.NAME' | translate}}</th>
                 <th>Capital</th>
                 <th></th>
             </tr>
@@ -23,10 +23,10 @@
                 <td> {{country.name.common}}</td>
                 <td> {{country.capital}}</td>
                 <td>
-                    <a [routerLink]="['/countries/view', country.cca3]">Ver pais</a>
+                    <a [routerLink]="['/countries/view', country.cca3]">{{ 'RESULT.SEE' | translate}} </a>
                 </td>
                 <td (click)="addToFavorites(country.cca3)">
-                    Agregar a favoritos
+                    {{ 'RESULT.ADD' | translate}} 
                 </td>
             </tr>
         </tbody>
